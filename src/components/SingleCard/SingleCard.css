@@ -1,0 +1,16 @@
+.single-card{
+    text-align: center;
+    margin-top:50px;
+    cursor: pointer;
+}
+.single-card img{
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+    
+}
+.single-card:hover{
+    box-shadow: 5px 5px 10px lightgray;
+    border-radius: 5px;
+
+}

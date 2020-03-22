@@ -1,0 +1,23 @@
+.choose-aria-content {
+	justify-content: space-evenly;
+	padding: 0;
+	margin-top: 25px;
+}
+.choose-aria-icon {
+	width: 30%;
+	margin: 0 10px;
+}
+.choose-aria-content div h5.card-title {
+	text-transform: capitalize;
+}
+.choose-aria-content p {
+	font-size: 12px;
+}
+.disabled {
+  background-color:rgb(128, 128, 128);
+  color: #fff;
+  cursor: not-allowed;
+}
+.card{
+    cursor: pointer;
+}

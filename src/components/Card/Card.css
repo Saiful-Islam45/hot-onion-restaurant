@@ -1,0 +1,28 @@
+.row{
+    display: flex;
+    justify-content: center;
+}
+
+.row ul li{
+    text-decoration: none;
+    font-size: 20px;
+    padding: 5px;
+    margin: 10px;
+    font-weight: 600;
+    color: gray;
+    display: flex;
+    float: left;
+    cursor: pointer;
+    
+
+}
+.card-area li .active{
+    color: #f91944;
+}
+.card-area li .gray{
+    color: gray;
+}
+.row ul li:hover{
+    color: #f91944;
+    border-bottom: 2px solid #f91944;
+}
