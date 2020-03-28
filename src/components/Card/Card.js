@@ -3,13 +3,16 @@ import './Card.css';
 import cardData from '../../resources/fakeData/cardData.json';
 import SingleCard from '../SingleCard/SingleCard';
 
+
 const Card = () => {
     const [card, setCard] = useState([]);
     const [foodCategory, setFoodCategory] = useState("lunch");
     useEffect(() => {
         setCard(cardData);
     }, [])
-    const cardItems = card.filter(food => food.type === foodCategory);
+
+
+    const cardItems = card.filter(food => food.type == foodCategory);
     console.log(cardItems);
     return (
         <div>
@@ -30,7 +33,7 @@ const Card = () => {
                     </nav>
                     <div className="row">
                         {
-                            cardItems.map(food => <SingleCard food={food}></SingleCard>)
+                            cardItems.map(food => <SingleCard key={food.id} food={food}></SingleCard>)
                         }
                     </div>
                     <div className="text-center">

@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Bagel And Cream Cheese",
+        "name": "Healthy Meal Plan",
         "images": [
             "https://i.ibb.co/pdfGzyp/breakfast1.png",
             "https://i.ibb.co/8bJV04d/breakfast2.png"
@@ -13,7 +13,7 @@
     },
     {
         "id": 2,
-        "name": "Bagel And Cream Cheese",
+        "name": "Breakfast sandwich",
         "images": [
             "https://i.ibb.co/8bJV04d/breakfast2.png",
             "https://i.ibb.co/xjkVyVZ/breakfast3.png"
@@ -25,7 +25,7 @@
     },
     {
         "id": 3,
-        "name": "Bagel And Cream Cheese",
+        "name": "Healthy Meal Plan",
         "images": [
             "https://i.ibb.co/xjkVyVZ/breakfast3.png",
             "https://i.ibb.co/GPS1MS0/breakfast4.png"
@@ -49,7 +49,7 @@
     },
     {
         "id": 5,
-        "name": "Bagel And Cream Cheese",
+        "name": "Healthy Meal Plan",
         "images": [
             "https://i.ibb.co/brDv96s/breakfast5.png",
             "https://i.ibb.co/WfVDMQ2/breakfast6.png"
@@ -67,7 +67,7 @@
             "https://i.ibb.co/pdfGzyp/breakfast1.png"
         ],
         "type": "breakfast",
-        "price": 9.50,
+        "price": 91.50,
         "shortDescription": "How to Dream About Your Future",
         "fullDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s."
     },
@@ -79,7 +79,7 @@
             "https://i.ibb.co/zGTrGFw/lunch2.png"
         ],
         "type": "lunch",
-        "price": 9.50,
+        "price": 29.50,
         "shortDescription": "How to Dream About Your Future",
         "fullDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s."
     },
@@ -91,7 +91,7 @@
             "https://i.ibb.co/prFCj77/lunch3.png"
         ],
         "type": "lunch",
-        "price": 9.50,
+        "price": 89.50,
         "shortDescription": "How to Dream About Your Future",
         "fullDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s."
     },
@@ -103,7 +103,7 @@
             "https://i.ibb.co/pX701Bg/lunch4.png"
         ],
         "type": "lunch",
-        "price": 9.50,
+        "price": 99.50,
         "shortDescription": "How to Dream About Your Future",
         "fullDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s."
     },
@@ -115,7 +115,7 @@
             "https://i.ibb.co/f85H3vz/lunch5.png"
         ],
         "type": "lunch",
-        "price": 9.50,
+        "price": 92.50,
         "shortDescription": "How to Dream About Your Future",
         "fullDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s."
     },
@@ -127,7 +127,7 @@
             "https://i.ibb.co/Vpf4qPW/lunch6.png"
         ],
         "type": "lunch",
-        "price": 9.50,
+        "price": 39.50,
         "shortDescription": "How to Dream About Your Future",
         "fullDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s."
     },

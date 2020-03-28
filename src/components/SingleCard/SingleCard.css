@@ -2,6 +2,7 @@
     text-align: center;
     margin-top:50px;
     cursor: pointer;
+    text-decoration: none;
 }
 .single-card img{
     width: 60%;
@@ -12,5 +13,15 @@
 .single-card:hover{
     box-shadow: 5px 5px 10px lightgray;
     border-radius: 5px;
+    text-emphasis: none;
+    text-decoration: none;
 
+}
+.card-body{
+    text-decoration: none;
+    color: black;
+}
+.card-body p:hover{
+    text-decoration: none;
+    color: black;
 }

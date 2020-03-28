@@ -25,18 +25,6 @@ const Header = () => {
                     </ul>
                 </nav>
             </div>
-
-            <div class="s01">
-                <form>
-                    <h1>Best food waiting for you belly</h1>
-                    <div className="search-area">
-                        <div className="text-left">
-                            <input id="search" type="text" placeholder="Search for food" />
-                            <button className="btn btn-danger" type="button">Search</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
         </div >
     );
 };
