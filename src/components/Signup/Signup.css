@@ -1,12 +1,16 @@
 *{
     box-sizing: border-box!important;
 }
+.container{
+    padding-top: 80px;
+}
 .sign-up{
-    background-image: url(../../resources/bannerbackground.png);
+    
+    background-image: url(../../resources/Image/signup-bg.png);
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: bottom;
-    height: calc(100vh - 77px);
+    height: calc(110vh - 77px);
     box-sizing: content-box;
 }
 .sign-up .logo img{

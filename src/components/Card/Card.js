@@ -4,7 +4,7 @@ import cardData from '../../resources/fakeData/cardData.json';
 import SingleCard from '../SingleCard/SingleCard';
 
 
-const Card = () => {
+const Card = (props) => {
     const [card, setCard] = useState([]);
     const [foodCategory, setFoodCategory] = useState("lunch");
     useEffect(() => {
@@ -12,7 +12,7 @@ const Card = () => {
     }, [])
 
 
-    const cardItems = card.filter(food => food.type == foodCategory);
+    const cardItems = card.filter(food => food.type === foodCategory);
     console.log(cardItems);
     return (
         <div>
@@ -37,7 +37,12 @@ const Card = () => {
                         }
                     </div>
                     <div className="text-center">
-                        <button disabled className="btn btn-secondary">Check Out Your Food</button>
+                        {
+                            props.count ?
+                                <a href="/checkout">
+                                    <button disabled className="btn btn-secondary">Check Out Your Food</button>
+                                </a> : <button disabled className="btn btn-secondary">Check Out Your Food</button>
+                        }
                     </div>
                 </div>
             </div>

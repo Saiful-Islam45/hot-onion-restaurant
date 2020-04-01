@@ -3,11 +3,13 @@ import './SingleCardDetails.css';
 import cardData from '../../resources/fakeData/cardData.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { useAuth } from '../User-auth';
 
 const SingliCardDetails = (props) => {
+    const auth = useAuth();
     const { id } = useParams();
-    const selectedItem = cardData.find(item => item.id == id);
+    const selectedItem = cardData.find(item => item.id === parseInt(id));
     const [numberOfItems, setNumberOfItems] = useState(1);
     const [isSuccess, setIsSuccess] = useState(false);
     useEffect(() => {
@@ -36,7 +38,16 @@ const SingliCardDetails = (props) => {
                         <button className="btn btn-rounded" onClick={() => setNumberOfItems(numberOfItems > 1 ? numberOfItems - 1 : 1)}> - </button> {numberOfItems} <button className="btn" onClick={() => setNumberOfItems(numberOfItems + 1)}> + </button>
                     </div>
                     <div>
-                        <button className="btn btn-danger btn-rounded mb-2 p-2 ml-1" onClick={() => handleTotalNumberOfItems(selectedItem)}><FontAwesomeIcon icon={faShoppingCart} /> Add</button>
+                        {
+                            auth.user ?
+                                <Link to="/checkout">
+                                    <button className="btn btn-danger btn-rounded mb-2 p-2" onClick={() => handleTotalNumberOfItems(selectedItem)}><FontAwesomeIcon icon={faShoppingCart} /> Add</button>
+                                </Link>
+                                :
+                                <Link to="/login">
+                                    <button className="btn btn-danger btn-rounded mb-2 p-2"><FontAwesomeIcon icon={faShoppingCart} /> Add</button>
+                                </Link>
+                        }
                         {
                             isSuccess &&
                             <div class="alert alert-success float-right" role="alert">

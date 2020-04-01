@@ -22,7 +22,7 @@ const Signup = () => {
 
     }
     return (
-        <div className="sign-up">
+        <div className="sign-up mt-5">
             <div className="container">
                 <div className="logo text-center">
                     <Link to="/">

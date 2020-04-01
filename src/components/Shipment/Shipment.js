@@ -5,12 +5,9 @@ import { Link } from 'react-router-dom';
 
 
 const Shipment = (props) => {
-    const { register, handleSubmit, watch, errors } = useForm()
+    const { register, handleSubmit, errors } = useForm()
     const onSubmit = data => props.deliveryDetailsHandler(data);
     const { todoor, road, flat, businessname, address } = props.deliveryDetails;
-    const reduceQuantity = (pId) => {
-        props.checkOutItemHandler(pId)
-    }
     const subTotal = props.cart.reduce((total, currentValue) => {
         return total + (currentValue.price * currentValue.quantity);
     }, 0)
@@ -19,7 +16,7 @@ const Shipment = (props) => {
         return total + currentValue.quantity;
     }, 0)
     const tax = (subTotal / 100) * 15;
-    const deliveryFee = 100;
+    const deliveryFee = totalQuantity && 60;
     const grandTotal = subTotal + tax + deliveryFee;
     return (
         <div className="container shipment  pt-5 my-5">

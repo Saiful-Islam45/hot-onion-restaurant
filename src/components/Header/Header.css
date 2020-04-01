@@ -1,18 +1,22 @@
 .navbar-brand img{
     width: 150px;
-    margin: 20px 950px 20px 100px;
+    margin: 20px 800px 20px 100px;
 }
 .nav-link{
     background-color: white;
+    font-weight: bold !important;
 }
 a.nav-link{
     color:black;
-    font-weight: 500;
+    
 }
 .color-pink{
     background: #F91944;
     color: white !important;
     border-radius: 15px;
-    font-weight: 400 !important;
+    font-weight: 500 !important;
     padding: 5px 15px 7px 15px;
+}
+.btn-rounded{
+    font-weight: 500;
 }

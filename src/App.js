@@ -64,34 +64,34 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/">
-              <Header></Header>
+              <Header count={cart.length}></Header>
               <Banner></Banner>
-              <Card cart={cart}></Card>
+              <Card count={cart.length}></Card>
               <ChooseUs></ChooseUs>
               <Footer></Footer>
             </Route>
             <Route path="/itemDetails/:id">
-              <Header></Header>
+              <Header count={cart.length}></Header>
               <SingliCardDetails cart={cart} cartHandler={cartHandler}></SingliCardDetails>
               <Footer></Footer>
             </Route>
             <PrivateRoute path="/checkout">
-              <Header cart={cart}></Header>
+              <Header count={cart.length}></Header>
               <Shipment deliveryDetails={deliveryDetails} deliveryDetailsHandler={deliveryDetailsHandler} cart={cart} clearCart={clearCart} checkOutItemHandler={checkOutItemHandler}></Shipment>
               <Footer></Footer>
             </PrivateRoute>
             <PrivateRoute path="/order-complete">
-              <Header cart={cart}></Header>
+              <Header></Header>
               <OrderComplete deliveryDetails={deliveryDetails}></OrderComplete>
               <Footer></Footer>
             </PrivateRoute>
 
             <Route path="/shipment">
-              <Header></Header>
+              <Header count={cart.length}></Header>
               <Shipment></Shipment>
             </Route>
-            <Route path="/signup">
-              <Header></Header>
+            <Route path="/login">
+              <Header count={cart.length}></Header>
               <Signup></Signup>
             </Route>
             <Route path="*">
