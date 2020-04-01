@@ -13,6 +13,8 @@ import SingliCardDetails from './components/SingleCard/SingliCardDetails';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import Signup from './components/Signup/Signup';
 import Shipment from './components/Shipment/Shipment';
+import OrderComplete from './components/OrderComplete/OrderComplete';
+import { AuthContextProvider, PrivateRoute } from './components/User-auth';
 
 
 function App() {
@@ -56,46 +58,52 @@ function App() {
   }
 
   return (
+    <AuthContextProvider>
+      <div>
 
-    <div>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Header></Header>
+              <Banner></Banner>
+              <Card cart={cart}></Card>
+              <ChooseUs></ChooseUs>
+              <Footer></Footer>
+            </Route>
+            <Route path="/itemDetails/:id">
+              <Header></Header>
+              <SingliCardDetails cart={cart} cartHandler={cartHandler}></SingliCardDetails>
+              <Footer></Footer>
+            </Route>
+            <PrivateRoute path="/checkout">
+              <Header cart={cart}></Header>
+              <Shipment deliveryDetails={deliveryDetails} deliveryDetailsHandler={deliveryDetailsHandler} cart={cart} clearCart={clearCart} checkOutItemHandler={checkOutItemHandler}></Shipment>
+              <Footer></Footer>
+            </PrivateRoute>
+            <PrivateRoute path="/order-complete">
+              <Header cart={cart}></Header>
+              <OrderComplete deliveryDetails={deliveryDetails}></OrderComplete>
+              <Footer></Footer>
+            </PrivateRoute>
 
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Header></Header>
-            <Banner></Banner>
-            <Card cart={cart}></Card>
-            <ChooseUs></ChooseUs>
-            <Footer></Footer>
-          </Route>
-          <Route path="/itemDetails/:id">
-            <Header></Header>
-            <SingliCardDetails cart={cart} cartHandler={cartHandler}></SingliCardDetails>
-            <Footer></Footer>
-          </Route>
-          <Route path="/checkout">
-            <Header cart={cart}></Header>
-            <Shipment deliveryDetails={deliveryDetails} deliveryDetailsHandler={deliveryDetailsHandler} cart={cart} clearCart={clearCart} checkOutItemHandler={checkOutItemHandler}></Shipment>
-            <Footer></Footer>
-          </Route>
-          <Route path="/signup">
-            <Header></Header>
-            <Signup></Signup>
-          </Route>
-          <Route path="/shipment">
-            <Header></Header>
-            <Shipment></Shipment>
-          </Route>
-          <Route path="*">
-            <ErrorPage></ErrorPage>
-          </Route>
-        </Switch>
-      </Router>
+            <Route path="/shipment">
+              <Header></Header>
+              <Shipment></Shipment>
+            </Route>
+            <Route path="/signup">
+              <Header></Header>
+              <Signup></Signup>
+            </Route>
+            <Route path="*">
+              <ErrorPage></ErrorPage>
+            </Route>
+          </Switch>
+        </Router>
 
 
 
-    </div>
-
+      </div>
+    </AuthContextProvider>
   );
 }
 
