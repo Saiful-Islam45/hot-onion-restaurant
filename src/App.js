@@ -11,12 +11,24 @@ import ChooseUs from './components/WhyUs/ChooseUs';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SingliCardDetails from './components/SingleCard/SingliCardDetails';
 import ErrorPage from './components/ErrorPage/ErrorPage';
-import SingleCard from './components/SingleCard/SingleCard';
+import Signup from './components/Signup/Signup';
+import Shipment from './components/Shipment/Shipment';
+
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [deliveryDetails, setDeliveryDetails] = useState({
+    todoor: '',
+    road: '',
+    flat: '',
+    businessname: '',
+    address: ''
+  });
   const clearCart = () => {
     setCart([])
+  }
+  const deliveryDetailsHandler = (data) => {
+    setDeliveryDetails(data)
   }
 
   const cartHandler = data => {
@@ -30,18 +42,17 @@ function App() {
       const newCart = [...cart, data]
       setCart(newCart);
     }
-    const checkOutItemHandler = (productId, productQuantity) => {
-      const newCart = cart.map(item => {
-        if (item.id === productId) {
-          item.quantity = productQuantity;
-        }
-        return item;
-      })
+  }
+  const checkOutItemHandler = (productId, productQuantity) => {
+    const newCart = cart.map(item => {
+      if (item.id === productId) {
+        item.quantity = productQuantity;
+      }
+      return item;
+    })
 
-      const filteredCart = newCart.filter(item => item.quantity > 0)
-      setCart(filteredCart)
-    }
-
+    const filteredCart = newCart.filter(item => item.quantity > 0)
+    setCart(filteredCart)
   }
 
   return (
@@ -61,6 +72,19 @@ function App() {
             <Header></Header>
             <SingliCardDetails cart={cart} cartHandler={cartHandler}></SingliCardDetails>
             <Footer></Footer>
+          </Route>
+          <Route path="/checkout">
+            <Header cart={cart}></Header>
+            <Shipment deliveryDetails={deliveryDetails} deliveryDetailsHandler={deliveryDetailsHandler} cart={cart} clearCart={clearCart} checkOutItemHandler={checkOutItemHandler}></Shipment>
+            <Footer></Footer>
+          </Route>
+          <Route path="/signup">
+            <Header></Header>
+            <Signup></Signup>
+          </Route>
+          <Route path="/shipment">
+            <Header></Header>
+            <Shipment></Shipment>
           </Route>
           <Route path="*">
             <ErrorPage></ErrorPage>

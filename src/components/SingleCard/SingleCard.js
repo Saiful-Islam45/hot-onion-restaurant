@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import './SingleCard.css';
 
 const SingleCard = (props) => {
+    console.log(props);
+
     const { id, name, shortDescription, price, images } = props.food;
     return (
-        <div className="col-md-4 col-sm-12 mb-5">
-            <Link to={"itemDetails/" + id}>
+        <div className="col-md-4 col-sm-6 mb-5">
+            <Link style={{ textDecoration: 'none' }} to={"itemDetails/" + id}>
                 <div className="single-card">
                     <img src={images[0]} alt="" />
                     <div className="card-body" >

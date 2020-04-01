@@ -28,9 +28,9 @@ const Footer = () => {
                 <div className="col-md-12 col-sm-12">
                     <div className="col-md-6"> <small style={{ color: 'gray' }}>Copyright &copy; 2019-20 Hot Onion Restuarant Ltd.</small></div>
                     <div className="col-md-6">
-                        <a href="">Privacy Policy.</a>
-                        <a href="">Terms of Use</a>
-                        <a href="">Pricing</a>
+                        <a href="/">Privacy Policy.</a>
+                        <a href="/">Terms of Use</a>
+                        <a href="/">Pricing</a>
                     </div>
                 </div>
             </div>

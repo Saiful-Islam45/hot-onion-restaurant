@@ -33,7 +33,7 @@ const Card = () => {
                     </nav>
                     <div className="row">
                         {
-                            cardItems.map(food => <SingleCard key={food.id} food={food}></SingleCard>)
+                            cardItems.map(food => <SingleCard key={food.id} food={food} cardItems={cardItems}></SingleCard>)
                         }
                     </div>
                     <div className="text-center">

@@ -1,0 +1,25 @@
+.img-fluid{
+    width: 600px !important;
+    height: auto;
+}
+.full-description{
+    line-height: 2em;
+    font-size: 18px;
+    color: gray;
+}
+#arrow{
+    margin-top: 30px;
+    font-size: 30px;
+    color: gray;
+}
+.alert{
+    font-style: italic;
+    font-size: 18px !important;
+    
+}
+.btn-design{
+    border-radius: 20px;
+    border: 1px solid gray;
+    width: 100px;
+    font-weight: 600;
+}
