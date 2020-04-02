@@ -42,7 +42,7 @@ const Signup = () => {
                             </div>
                             <div className="form-group">
                                 <input type="password" name="password" className="form-control" ref={register({ required: true })} placeholder="Password" />
-                                {errors.password && <span className="error">Password is required</span>}
+                                {errors.password && <span className="text-danger">Password is required</span>}
                             </div>
 
                             <div className="form-group">
@@ -59,21 +59,21 @@ const Signup = () => {
                             }
                             <div className="form-group">
                                 <input name="name" className="form-control" ref={register({ required: true })} placeholder="Name" />
-                                {errors.name && <span className="error">Name is required</span>}
+                                {errors.name && <span className="text-danger">Name is required</span>}
                             </div>
                             <div className="form-group">
                                 <input name="email" className="form-control" ref={register({ required: true })} placeholder="Email" />
-                                {errors.email && <span className="error">Email is required</span>}
+                                {errors.email && <span className="text-danger">Email is required</span>}
                             </div>
                             <div className="form-group">
                                 <input type="password" name="password" className="form-control" ref={register({ required: true })} placeholder="Password" />
-                                {errors.password && <span className="error">Password is required</span>}
+                                {errors.password && <span className="text-danger">Password is required</span>}
                             </div>
                             <div className="form-group">
                                 <input type="password" name="confirm_password" className="form-control" ref={register({
                                     validate: (value) => value === watch('password')
                                 })} placeholder="Confirm Password" />
-                                {errors.confirm_password && <span className="error">Passwords don't match.</span>}
+                                {errors.confirm_password && <span className="text-danger">Passwords don't match.</span>}
                             </div>
                             <div className="form-group">
                                 <button className="btn btn-danger btn-block" type="submit">Sign Up</button>
