@@ -7,17 +7,19 @@ import { Link } from 'react-router-dom';
 const Shipment = (props) => {
     const { register, handleSubmit, errors } = useForm()
     const onSubmit = data => props.deliveryDetailsHandler(data);
-    const { todoor, road, flat, businessname, address } = props.deliveryDetails;
-    const subTotal = props.cart.reduce((total, currentValue) => {
-        return total + (currentValue.price * currentValue.quantity);
-    }, 0)
 
+    // const { todoor, road, flat, businessname, address } = props.deliveryDetails.;
+    const subTotal = props.cart.reduce((total, currentValue) => {
+        return total + (currentValue.price * currentValue.numberOfItems);
+    }, 0)
+    
     const totalQuantity = props.cart.reduce((total, currentValue) => {
-        return total + currentValue.quantity;
+        return total + currentValue.numberOfItems;
     }, 0)
     const tax = (subTotal / 100) * 15;
     const deliveryFee = totalQuantity && 60;
     const grandTotal = subTotal + tax + deliveryFee;
+
     return (
         <div className="container shipment  pt-5 my-5">
             <div className="row">
@@ -27,23 +29,23 @@ const Shipment = (props) => {
                     <form onSubmit={handleSubmit(onSubmit)} className="py-5">
 
                         <div className="form-group">
-                            <input name="todoor" className="form-control" ref={register({ required: true })} defaultValue={todoor} placeholder="Delivery To Door" />
+                            <input name="todoor" className="form-control" ref={register({ required: true })} defaultValue={props.deliveryDetails.todoor} placeholder="Delivery To Door" />
                             {errors.todoor && <span className="error">This Option is required</span>}
                         </div>
                         <div className="form-group">
-                            <input name="road" className="form-control" ref={register({ required: true })} defaultValue={road} placeholder="Road No" />
+                            <input name="road" className="form-control" ref={register({ required: true })} defaultValue={props.deliveryDetails.road} placeholder="Road No" />
                             {errors.road && <span className="error">Road No is required</span>}
                         </div>
                         <div className="form-group">
-                            <input name="flat" className="form-control" ref={register({ required: true })} defaultValue={flat} placeholder="Flat, Suite or Floor" />
+                            <input name="flat" className="form-control" ref={register({ required: true })} defaultValue={props.deliveryDetails.flat} placeholder="Flat, Suite or Floor" />
                             {errors.flat && <span className="error">Flat, Suite or Floor is required</span>}
                         </div>
                         <div className="form-group">
-                            <input name="businessname" className="form-control" ref={register({ required: true })} defaultValue={businessname} placeholder="Business name" />
+                            <input name="businessname" className="form-control" ref={register({ required: true })} defaultValue={props.deliveryDetails.businessname} placeholder="Business name" />
                             {errors.businessname && <span className="error">Business name is required</span>}
                         </div>
                         <div className="form-group">
-                            <textarea name="address" ref={register({ required: true })} placeholder="Address" className="form-control" cols="30" rows="2">{address}</textarea>
+                            <textarea name="address" ref={register({ required: true })} placeholder="Address" className="form-control" cols="30" rows="2">{props.deliveryDetails.address}</textarea>
                             {errors.address && <span className="error">Password is required</span>}
                         </div>
 
@@ -66,14 +68,14 @@ const Shipment = (props) => {
                                 <div>
                                     <h6>{item.name}</h6>
                                     <h4 className="text-danger">${item.price.toFixed(2)}</h4>
-                                    <p>Delivery free</p>
+                                    <p>Delivery fee</p>
                                 </div>
                                 <div className="checkout-item-button ml-3 btn">
                                     <button onClick={() => props.checkOutItemHandler(item.id, (item.quantity + 1))} className="btn font-weight-bolder">+</button>
-                                    <button className="btn bg-white rounded">{item.quantity}</button>
+                                    <button className="btn bg-white rounded font-weight-bold">{item.numberOfItems}</button>
 
                                     {
-                                        item.quantity > 0 ?
+                                        item.numberOfItems > 0 ?
                                             <button className="btn font-weight-bolder" onClick={() => props.checkOutItemHandler(item.id, (item.quantity - 1))}>-</button>
                                             :
                                             <button disabled className="btn font-weight-bolder">-</button>
@@ -92,7 +94,7 @@ const Shipment = (props) => {
                         <p className="h5 d-flex justify-content-between"><span>Total</span> <span>${grandTotal.toFixed(2)}</span></p>
                         {
                             totalQuantity ?
-                                todoor && road && flat && businessname && address ?
+                                props.deliveryDetails.todoor && props.deliveryDetails.road && props.deliveryDetails.flat && props.deliveryDetails.businessname && props.deliveryDetails.address ?
                                     <Link to="/order-complete">
                                         <button onClick={() => props.clearCart()} className="btn btn-block btn-danger btn-secondary">Check Out Your Food</button>
                                     </Link>

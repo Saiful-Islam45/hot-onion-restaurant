@@ -12,8 +12,7 @@ const Card = (props) => {
     }, [])
 
 
-    const cardItems = card.filter(food => food.type === foodCategory);
-    console.log(cardItems);
+    const cardItems = card.filter(food => food.type == foodCategory);
     return (
         <div>
             <div className="container card-area">

@@ -17,6 +17,7 @@ import OrderComplete from './components/OrderComplete/OrderComplete';
 import { AuthContextProvider, PrivateRoute } from './components/User-auth';
 
 
+
 function App() {
   const [cart, setCart] = useState([]);
   const [deliveryDetails, setDeliveryDetails] = useState({
@@ -25,14 +26,23 @@ function App() {
     flat: '',
     businessname: '',
     address: ''
-  });
+  })
+  //console.log(deliveryDetails);
+
   const clearCart = () => {
     setCart([])
   }
-  const deliveryDetailsHandler = (data) => {
-    setDeliveryDetails(data)
+  const deliveryDetailsHandler = data => {
+    const dataSet = {
+      todoor: data.todoor,
+      road: data.road,
+      flat: data.flat,
+      businessname: data.businessname,
+      address: data.address
+    }
+    setDeliveryDetails(dataSet)
   }
-
+  // console.log(deliveryDetails);
   const cartHandler = data => {
     const addedItems = cart.find(item => item.id === data.id);
     const newCart = [...cart, data]
@@ -47,7 +57,7 @@ function App() {
   }
   const checkOutItemHandler = (productId, productQuantity) => {
     const newCart = cart.map(item => {
-      if (item.id === productId) {
+      if (item.id == productId) {
         item.quantity = productQuantity;
       }
       return item;
@@ -72,7 +82,7 @@ function App() {
             </Route>
             <Route path="/itemDetails/:id">
               <Header count={cart.length}></Header>
-              <SingliCardDetails cart={cart} cartHandler={cartHandler}></SingliCardDetails>
+              <SingliCardDetails key={cart.id} cart={cart} cartHandler={cartHandler}></SingliCardDetails>
               <Footer></Footer>
             </Route>
             <PrivateRoute path="/checkout">
@@ -99,9 +109,6 @@ function App() {
             </Route>
           </Switch>
         </Router>
-
-
-
       </div>
     </AuthContextProvider>
   );
