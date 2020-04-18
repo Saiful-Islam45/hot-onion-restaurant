@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './Card.css';
-import cardData from '../../resources/fakeData/cardData.json';
 import SingleCard from '../SingleCard/SingleCard';
 
 
@@ -8,8 +7,13 @@ const Card = (props) => {
     const [card, setCard] = useState([]);
     const [foodCategory, setFoodCategory] = useState("lunch");
     useEffect(() => {
-        setCard(cardData);
-    }, [])
+        fetch('https://shrouded-wildwood-03121.herokuapp.com/products')
+        .then(res => res.json())
+        .then(data => {
+            setCard(data);
+        })
+    } ,[])
+
 
 
     const cardItems = card.filter(food => food.type == foodCategory);
@@ -32,7 +36,7 @@ const Card = (props) => {
                     </nav>
                     <div className="row">
                         {
-                            cardItems.map(food => <SingleCard key={food.id} food={food} cardItems={cardItems}></SingleCard>)
+                            cardItems.map(food => <SingleCard id={food.id} food={food} cardItems={cardItems}></SingleCard>)
                         }
                     </div>
                     <div className="text-center">

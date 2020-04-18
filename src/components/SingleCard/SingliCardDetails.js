@@ -9,14 +9,27 @@ import { useAuth } from '../User-auth';
 const SingliCardDetails = (props) => {
     const auth = useAuth();
     const { id } = useParams();
+    const [curItem, setCurItem]=useState([]);
+    useEffect(()=>{
+        fetch('https://shrouded-wildwood-03121.herokuapp.com/products/'+id)
+        .then(res=>res.json())
+        .then(data=>{
+            setCurItem(data)
+            console.log("id ta passi nah",data);
+        })
+        
+    },[])
     const selectedItem = cardData.find(item => item.id === parseInt(id));
     const [numberOfItems, setNumberOfItems] = useState(1);
     const [isSuccess, setIsSuccess] = useState(false);
     useEffect(() => {
+       
         if (selectedItem.numberOfItems) {
             setNumberOfItems(selectedItem.numberOfItems)
         }
+        window.scrollTo(0,0)
     }, [selectedItem.numberOfItems]);
+    
     const handleTotalNumberOfItems = (item) => {
         item.numberOfItems = numberOfItems;
         props.cartHandler(item);

@@ -12,6 +12,14 @@
     font-size: 30px;
     color: gray;
 }
+.small-img {
+    padding: 7px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.active-small-img{
+    border: 1px solid lightgray;
+}
 .alert{
     font-style: italic;
     font-size: 18px !important;

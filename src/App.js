@@ -15,6 +15,7 @@ import Signup from './components/Signup/Signup';
 import Shipment from './components/Shipment/Shipment';
 import OrderComplete from './components/OrderComplete/OrderComplete';
 import { AuthContextProvider, PrivateRoute } from './components/User-auth';
+import Inventory from './components/Inventory/Inventory';
 
 
 
@@ -91,7 +92,7 @@ function App() {
               <Footer></Footer>
             </PrivateRoute>
             <PrivateRoute path="/order-complete">
-              <Header></Header>
+              <Header count={cart.length}></Header>
               <OrderComplete deliveryDetails={deliveryDetails}></OrderComplete>
               <Footer></Footer>
             </PrivateRoute>
@@ -103,6 +104,11 @@ function App() {
             <Route path="/login">
               <Header count={cart.length}></Header>
               <Signup></Signup>
+            </Route>
+            <Route path="/inventory">
+              <Header cart={cart.length}></Header>
+              <Inventory></Inventory>
+              <Footer></Footer>
             </Route>
             <Route path="*">
               <ErrorPage></ErrorPage>
