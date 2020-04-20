@@ -14,6 +14,10 @@ const OrderComplete = (props) => {
                         <img className="w-25 ml-5" src={Rider} alt="" />
                         <div className="bg-white  rounded p-3 my-3">
                             <div>
+                                <h6>Order Id :</h6>
+                                <p>{props.orderId}</p>
+                            </div>
+                            <div>
                                 <h5>Your Location</h5>
                                 <p>{props.deliveryDetails.flat}, {props.deliveryDetails.road}</p>
                             </div>

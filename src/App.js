@@ -21,6 +21,8 @@ import Inventory from './components/Inventory/Inventory';
 
 function App() {
   const [cart, setCart] = useState([]);
+  const[orderId, setOrderId] = useState(null);
+  const [getUserEmail,setGetUserEmail] = useState('');
   const [deliveryDetails, setDeliveryDetails] = useState({
     todoor: '',
     road: '',
@@ -29,8 +31,27 @@ function App() {
     address: ''
   })
   //console.log(deliveryDetails);
+  
+  const userEmail = (email)=>{
+    setGetUserEmail(email);
+  }
+  const clearCart =  () => {
+    const orderedItems = cart.map(cartItem => {
+      return {food_id : cartItem.id, quantity: cartItem.quantity}
+    })
 
-  const clearCart = () => {
+    const ordersData = { getUserEmail , orderedItems,  deliveryDetails }
+    fetch('https://shrouded-wildwood-03121.herokuapp.com/placeOrder' , {
+        method : "POST",
+        headers: {
+            "Content-type" : "application/json"
+        },
+        body : JSON.stringify(ordersData)
+    })
+    .then(res => res.json())
+    .then(data=> setOrderId(data._id))
+    console.log(orderId);
+
     setCart([])
   }
   const deliveryDetailsHandler = data => {
@@ -93,20 +114,20 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/order-complete">
               <Header count={cart.length}></Header>
-              <OrderComplete deliveryDetails={deliveryDetails}></OrderComplete>
+              <OrderComplete deliveryDetails={deliveryDetails} orderId={orderId}></OrderComplete>
               <Footer></Footer>
             </PrivateRoute>
 
             <Route path="/shipment">
               <Header count={cart.length}></Header>
-              <Shipment></Shipment>
+              <Shipment deliveryDetails={deliveryDetails} deliveryDetailsHandler={deliveryDetailsHandler} cart={cart} clearCart={clearCart} checkOutItemHandler={checkOutItemHandler} userEmail={userEmail}></Shipment>
             </Route>
             <Route path="/login">
               <Header count={cart.length}></Header>
               <Signup></Signup>
             </Route>
             <Route path="/inventory">
-              <Header cart={cart.length}></Header>
+              <Header count={cart.length}></Header>
               <Inventory></Inventory>
               <Footer></Footer>
             </Route>

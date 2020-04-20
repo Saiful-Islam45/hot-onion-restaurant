@@ -6,6 +6,8 @@ import SingleCard from '../SingleCard/SingleCard';
 const Card = (props) => {
     const [card, setCard] = useState([]);
     const [foodCategory, setFoodCategory] = useState("lunch");
+
+
     useEffect(() => {
         fetch('https://shrouded-wildwood-03121.herokuapp.com/products')
         .then(res => res.json())
@@ -36,14 +38,14 @@ const Card = (props) => {
                     </nav>
                     <div className="row">
                         {
-                            cardItems.map(food => <SingleCard id={food.id} food={food} cardItems={cardItems}></SingleCard>)
+                            cardItems.map(food => <SingleCard key={food.id} food={food} cardItems={cardItems}></SingleCard>)
                         }
                     </div>
                     <div className="text-center">
                         {
                             props.count ?
                                 <a href="/checkout">
-                                    <button disabled className="btn btn-secondary">Check Out Your Food</button>
+                                    <button className="btn btn-secondary">Check Out Your Food</button>
                                 </a> : <button disabled className="btn btn-secondary">Check Out Your Food</button>
                         }
                     </div>
