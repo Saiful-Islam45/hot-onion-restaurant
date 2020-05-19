@@ -1,5 +1,6 @@
-# Hot Onion Restaurant
+# Hot Onion Restaurant 
 This is an e-commerce website where customer can add their favorite foods in cart and checkout by providing their delivery information.They can also do their payment via online.
+### [Live Website](https://hot-onion-restaurant-a3465.web.app/)
 ### key Features:
 * Slider and Food card
 * Login and Signup with Validation
