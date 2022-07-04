@@ -10,7 +10,7 @@ const Header = (props) => {
 	const auth = useAuth();
 	return (
 		<div>
-			<div className="container-fluid" style={{position: 'fixed',backgroundColor: 'white', zIndex: 20}}>
+			<div className="container-fluid" style={{position: 'fixed',backgroundColor: 'white', zIndex: 20, boxShadow:' 3px 3px 5px #edf2ef'}}>
 				<nav className="navbar navbar-expand-lg navbar-light">
 					<a className="navbar-brand" href="/">
 						<img src={logo} alt="" />

@@ -15,7 +15,7 @@ a.nav-link{
     color: white !important;
     border-radius: 15px;
     font-weight: 500 !important;
-    padding: 5px;
+    padding: 0px 10px;
     margin-left: 15px;
 }
 .btn-rounded{
