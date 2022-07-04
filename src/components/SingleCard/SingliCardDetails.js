@@ -16,7 +16,8 @@ const SingliCardDetails = (props) => {
             setCurItem(data);
         })
          window.scrollTo(0,0)
-    },[])
+         
+    },[id])
     const [numberOfItems, setNumberOfItems] = useState(1);
     const [isSuccess, setIsSuccess] = useState(false);
     // useEffect(() => {
