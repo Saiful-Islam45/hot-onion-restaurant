@@ -79,7 +79,7 @@ function App() {
   }
   const checkOutItemHandler = (productId, productQuantity) => {
     const newCart = cart.map(item => {
-      if (item.id == productId) {
+      if (item.id === productId) {
         item.quantity = productQuantity;
       }
       return item;

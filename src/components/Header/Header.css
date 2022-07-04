@@ -1,6 +1,6 @@
 .navbar-brand img{
     width: 150px;
-    margin: 20px 800px 20px 100px;
+    margin: 10px 750px 10px 50px;
 }
 .nav-link{
     background-color: white;
@@ -15,7 +15,7 @@ a.nav-link{
     color: white !important;
     border-radius: 15px;
     font-weight: 500 !important;
-    padding: 5px;
+    padding: 0px 10px;
     margin-left: 15px;
 }
 .btn-rounded{
