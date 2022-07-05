@@ -2,6 +2,7 @@ import React from 'react';
 import './ChooseItem.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 const ChooseItem = ({ item }) => {
     const { title, description, img, icon } = item;
@@ -17,7 +18,9 @@ const ChooseItem = ({ item }) => {
                         <div>
                             <h5 className="card-title">{title}</h5>
                             <p className="card-text">{description}</p>
+                            <Link style={{ textDecoration: 'none' }} to={"itemDetails/" + 10} >
                             <h6>See more <FontAwesomeIcon icon={faArrowRight} /></h6>
+                            </Link>
                         </div>
                     </div>
                 </div>
