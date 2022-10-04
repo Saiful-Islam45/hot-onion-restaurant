@@ -1,7 +1,14 @@
 .navbar-brand img{
     width: 150px;
-    margin: 10px 750px 10px 50px;
+    height: auto;
 }
+.container {
+    padding-top: 5px !important
+}
+.nav-item {
+    padding: 2px
+} 
+
 .nav-link{
     background-color: white;
     font-weight: bold !important;
@@ -15,9 +22,8 @@ a.nav-link{
     color: white !important;
     border-radius: 15px;
     font-weight: 500 !important;
-    padding: 0px 10px;
-    margin-left: 15px;
+    padding: 0px 5px;
 }
 .btn-rounded{
     font-weight: 500;
-}
+} 
